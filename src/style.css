@@ -1,89 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+/* 基本样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 页面的主体内容 */
+body, html, #app {
+    height: 100%; /* 确保页面撑满整个视口的高度 */
+    background-image: linear-gradient(to right, rgb(92, 31, 96), rgb(55, 26, 57));
+    min-width: 1280px;
+}
+
+/*!* 主要容器样式 *!*/
+.common-layout {
+    /*max-width: 1400px; !* 最大宽度为1400px *!*/
+    margin: 0 auto; /* 水平居中 */
+    padding: 10px; /* 添加一些内边距 */
+    height: 100%; /* 撑满视口高度 */
+    /*display: flex; !* 使用Flex布局 *!*/
+    /*flex-direction: column; !* 子元素垂直排列 *!*/
+    /*justify-content: center; !* 垂直居中 *!*/
+    /*align-items: stretch; !* 子元素拉伸以填满容器宽度 *!*/
+
+}
+
+/* 响应式媒体查询 */
+@media (max-width: 1440px) {
+    .container {
+        padding: 0 10px; /* 在较小屏幕上减小内边距 */
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 5px; /* 在更小屏幕上进一步减小内边距 */
+    }
+}
+
+/* 根据需要添加更多样式 */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+    --dart-purple: rgb(55, 26, 57);
+    --light-purple: rgb(92, 31, 96);
+    --lightest-purple: rgb(160, 75, 182);
+    --font-nunito: 'Nunito', sans-serif;
+    --mark-gray: rgba(211, 211, 211, 0.5);
+    --light-gray: rgba(241, 239, 239, 0.8);
+    --light-blue: #59bcff;
+    --white-font-color: #ffffff;
+    --white-font-weight: bolder;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-.card {
-  padding: 2em;
-}
-
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+    --light-yellow: rgb(20, 151, 243);
 }
