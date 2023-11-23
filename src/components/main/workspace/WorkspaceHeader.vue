@@ -1,51 +1,36 @@
 <script setup>
 import {useTextbookStore} from "@/stores/textbook.js";
-import {ref,onMounted} from "vue";
+import {ref} from "vue";
+import {useEditorStore} from "@/stores/editor.js";
 
 const textbookStore = useTextbookStore()
 const currentVersion = ref(textbookStore.textbook.currentVersion)
+
+const editorStore = useEditorStore()
 </script>
 
 <template>
-	<!--	<div class="main-header-container">-->
-	<!--		<div class="tool-icon"></div>-->
-	<!--	</div>-->
 	<div class="main-header-container">
 		<div class="text-container">
-			<span class="title-style">Title</span>
-			<span class="text-title">
-				{{textbookStore.textbook.title}}
-			</span>
 			<div>
 				<select v-model="currentVersion">
-					<option v-for="version in textbookStore.textbook.versions" :key="version['vid']" :value="version['version']">
+					<option v-for="version in textbookStore.textbook.versions" :key="version['vid']"
+							:value="version['version']">
 						{{ version['version'] }}
 					</option>
 				</select>
 			</div>
+			<span class="text-title">
+				{{ textbookStore.textbook.title }}
+			</span>
+
 		</div>
 		<div class="text-container" style="justify-self: end">
 
-			<el-tooltip content="delete the work">
-				<span class="material-symbols-outlined">delete</span>
-			</el-tooltip>
-
-			<el-tooltip content="edit / save">
-				<span class="material-symbols-outlined">edit</span>
-			</el-tooltip>
-
-			<el-tooltip content="publish">
-				<span class="material-symbols-outlined">new_releases</span>
-			</el-tooltip>
-			<el-tooltip content="upload local file">
-				<span class="material-symbols-outlined">upload_file</span>
-			</el-tooltip>
-
-			<el-tooltip content="show menu">
-				<span class="material-symbols-outlined">menu</span>
-			</el-tooltip>
-
-
+			<div class="header-button" v-for="h in editorStore.headerIcon" @click="h.func(editorStore.editorProps)">
+				<span class="material-symbols-outlined">{{ h.icon }}</span>
+				<span>{{ h.text }}</span>
+			</div>
 		</div>
 	</div>
 
@@ -53,6 +38,24 @@ const currentVersion = ref(textbookStore.textbook.currentVersion)
 </template>
 
 <style scoped>
+.header-button {
+	font-size: 14px;
+	margin-left: 10px;
+	width: 80px;
+	padding: 4px 4px 4px 2px;
+	border-radius: 5px;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin-bottom: 4px;
+}
+
+.header-button:hover {
+	cursor: pointer;
+	background-color: var(--mark-gray);
+
+}
+
 .main-header-container {
 	height: 40px;
 	color: black;
@@ -69,14 +72,6 @@ const currentVersion = ref(textbookStore.textbook.currentVersion)
 	align-items: center;
 }
 
-.title-style {
-	color: white;
-	font-size: 12px;
-	background-color: var(--lightest-purple);
-	border-radius: 4px;
-	padding: 2px 3px;
-	margin-right: 5px;
-}
 
 .text-title {
 	line-height: 100%;
@@ -86,18 +81,12 @@ const currentVersion = ref(textbookStore.textbook.currentVersion)
 }
 
 .material-symbols-outlined {
-	font-variation-settings: 'FILL' 0, 'wght' 350, 'GRAD' 0, 'opsz' 24;
+	font-variation-settings: 'FILL' 1, 'wght' 300, 'GRAD' 0, 'opsz' 0;
 	color: #605a5a;
 	font-size: 24px;
-	padding: 5px;
-
 }
 
-.material-symbols-outlined:hover {
-	cursor: pointer;
-	background-color: var(--light-gray);
-	border-radius: 6px;
-}
+
 select {
 	padding: 3px;
 	margin: 3px 5px;

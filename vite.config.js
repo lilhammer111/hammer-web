@@ -8,6 +8,8 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import path from "path"
 
+import {prismjsPlugin} from 'vite-plugin-prismjs'
+
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
@@ -30,6 +32,9 @@ export default defineConfig({
         }),
         Icons({
             autoInstall: true,
+        }),
+        prismjsPlugin({
+            languages: ['json'],
         }),
     ],
     resolve: {

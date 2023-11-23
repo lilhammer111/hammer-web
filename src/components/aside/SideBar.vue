@@ -1,6 +1,7 @@
 <script setup>
 import {ref} from "vue";
 import router from "@/routes/index.js";
+import {useTextbookStore} from "@/stores/textbook.js";
 
 
 const tabs = ref([
@@ -13,6 +14,7 @@ const tabs = ref([
 	{icon: 'steppers', label: 'more'},
 ])
 
+const textbookStore = useTextbookStore()
 const toSecCat = (path) => {
 	router.push('/' + path)
 }

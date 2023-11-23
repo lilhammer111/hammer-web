@@ -11,22 +11,7 @@ export const useTextbookStore = defineStore('textbook', () => {
     })
 
     const works = ref([])
-    const getWorkList = () => {
-        getWork().then(resp => {
-            // inspect the resp
-            // console.log("work list resp is",resp)
-            // business logic
-            for (const d of resp.data.data) {
-                const tempWork = {
-                    title: d.title,
-                    textbookID: d['ID'],
-                }
-                works.value.push(tempWork)
-            }
-        }).catch(err=> {
-            console.log("getWork()'s error is", err)
-        })
-    }
+
     const getTextbookContentAndVersions = (tid, title) => {
         getWorkContent(tid).then(resp => {
             // console.log("latestTextbook is ",resp.data['data'])
@@ -40,5 +25,5 @@ export const useTextbookStore = defineStore('textbook', () => {
             console.log("getTextbookContentAndVersions()'s error is", e)
         })
     }
-    return {textbook,works, getTextbookContentAndVersions, getWorkList}
+    return {textbook,works, getTextbookContentAndVersions}
 })

@@ -12,6 +12,7 @@ import Divider from "C/common/Divider.vue";
 
 <style scoped>
 .sc-cont {
+	height: 100%;
 	font-family: var(--font-nunito);
 	padding: 10px;
 	display: flex;

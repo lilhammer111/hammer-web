@@ -33,11 +33,6 @@ const routes = [
         ]
     },
     {
-        path: '/index',
-        component: Layout,
-
-    },
-    {
         path: '/404',
         component: NotFound
     },

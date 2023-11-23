@@ -24,6 +24,10 @@ import Main from "@/layout/Main.vue";
 </template>
 
 <style scoped>
+.common-layout {
+	height: 100vh;
+}
+
 .el-c-container {
 	height: 100%;
 }
@@ -32,5 +36,7 @@ import Main from "@/layout/Main.vue";
 	padding: 0;
 	background-color: rgb(255, 255, 255);
 	border-radius: 10px;
+	box-sizing: border-box;
+	margin:10px;
 }
 </style>

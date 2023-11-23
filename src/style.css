@@ -7,25 +7,17 @@
     box-sizing: border-box;
 }
 
+
+
 /* 页面的主体内容 */
 body, html, #app {
-    height: 100%; /* 确保页面撑满整个视口的高度 */
+    height: 100vh; /* 确保页面撑满整个视口的高度 */
     background-image: linear-gradient(to right, rgb(92, 31, 96), rgb(55, 26, 57));
     min-width: 1280px;
 }
 
 /*!* 主要容器样式 *!*/
-.common-layout {
-    /*max-width: 1400px; !* 最大宽度为1400px *!*/
-    margin: 0 auto; /* 水平居中 */
-    padding: 10px; /* 添加一些内边距 */
-    height: 100%; /* 撑满视口高度 */
-    /*display: flex; !* 使用Flex布局 *!*/
-    /*flex-direction: column; !* 子元素垂直排列 *!*/
-    /*justify-content: center; !* 垂直居中 *!*/
-    /*align-items: stretch; !* 子元素拉伸以填满容器宽度 *!*/
 
-}
 
 /* 响应式媒体查询 */
 @media (max-width: 1440px) {
@@ -48,6 +40,7 @@ body, html, #app {
     --font-nunito: 'Nunito', sans-serif;
     --mark-gray: rgba(211, 211, 211, 0.5);
     --light-gray: rgba(241, 239, 239, 0.8);
+    --dark-gray: rgb(141, 134, 134);
     --light-blue: #59bcff;
     --white-font-color: #ffffff;
     --white-font-weight: bolder;
