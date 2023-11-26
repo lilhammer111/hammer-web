@@ -7,8 +7,8 @@ import {ElementPlusResolver} from 'unplugin-vue-components/resolvers'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import path from "path"
+import {prismjsPlugin} from "vite-plugin-prismjs";
 
-import {prismjsPlugin} from 'vite-plugin-prismjs'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -34,7 +34,10 @@ export default defineConfig({
             autoInstall: true,
         }),
         prismjsPlugin({
-            languages: ['json'],
+            languages: 'all',
+            plugins:['line-numbers'],
+            theme:'coy',
+            css:true
         }),
     ],
     resolve: {

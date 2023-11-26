@@ -1,10 +1,10 @@
 <script setup>
-import {useTextbookStore} from "@/stores/textbook.js";
+import {useWorkspaceStore} from "@/stores/workspace.js";
 import {ref} from "vue";
 import {useEditorStore} from "@/stores/editor.js";
 
-const textbookStore = useTextbookStore()
-const currentVersion = ref(textbookStore.textbook.currentVersion)
+const workspaceStore = useWorkspaceStore()
+const currentVersion = ref(workspaceStore.workspace.currentVersion)
 
 const editorStore = useEditorStore()
 </script>
@@ -14,19 +14,18 @@ const editorStore = useEditorStore()
 		<div class="text-container">
 			<div>
 				<select v-model="currentVersion">
-					<option v-for="version in textbookStore.textbook.versions" :key="version['vid']"
+					<option v-for="version in workspaceStore.workspace.versions" :key="version['vid']"
 							:value="version['version']">
 						{{ version['version'] }}
 					</option>
 				</select>
 			</div>
 			<span class="text-title">
-				{{ textbookStore.textbook.title }}
+				{{ workspaceStore.workspace.title }}
 			</span>
-
 		</div>
-		<div class="text-container" style="justify-self: end">
 
+		<div class="text-container" style="justify-self: end">
 			<div class="header-button" v-for="h in editorStore.headerIcon" @click="h.func(editorStore.editorProps)">
 				<span class="material-symbols-outlined">{{ h.icon }}</span>
 				<span>{{ h.text }}</span>

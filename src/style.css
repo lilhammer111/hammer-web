@@ -34,6 +34,7 @@ body, html, #app {
 
 /* 根据需要添加更多样式 */
 :root {
+    --text-hover-purple: rgb(208, 117, 245);
     --dart-purple: rgb(55, 26, 57);
     --light-purple: rgb(92, 31, 96);
     --lightest-purple: rgb(160, 75, 182);
@@ -46,4 +47,44 @@ body, html, #app {
     --white-font-weight: bolder;
 
     --light-yellow: rgb(20, 151, 243);
+    /* font-size */
+    --s-font-size:12px;
+    --l-font-size:16px;
+    --xl-font-size:20px;
+}
+
+/* header */
+.main-header-container {
+    height: 40px;
+    color: black;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50%   50%;
+    grid-template-rows: 40px; /* 自动行高 */
+}
+
+
+.text-container {
+    height: 40px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.header-button {
+    font-size: 14px;
+    margin-left: 10px;
+    width: 80px;
+    padding: 4px 4px 4px 2px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.header-button:hover {
+    cursor: pointer;
+    background-color: var(--mark-gray);
+
 }

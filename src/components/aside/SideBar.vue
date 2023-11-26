@@ -1,11 +1,11 @@
 <script setup>
 import {ref} from "vue";
 import router from "@/routes/index.js";
-import {useTextbookStore} from "@/stores/textbook.js";
+import {useWorkspaceStore} from "@/stores/workspace.js";
 
 
 const tabs = ref([
-	{icon: 'public', label: 'world'},
+	{icon: 'public', label: 'piazza'},
 	// {icon: 'school', label: 'academy'},
 	{icon: 'book', label: 'textbook'},
 	{icon: 'rebase_edit', label: 'workspace'},
@@ -14,7 +14,7 @@ const tabs = ref([
 	{icon: 'steppers', label: 'more'},
 ])
 
-const textbookStore = useTextbookStore()
+const textbookStore = useWorkspaceStore()
 const toSecCat = (path) => {
 	router.push('/' + path)
 }

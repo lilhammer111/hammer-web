@@ -2,18 +2,22 @@
 import {onMounted, ref} from "vue";
 import {getWork} from "@/api/workspace.js";
 import Divider from "C/common/Divider.vue";
-import {useTextbookStore} from "@/stores/textbook.js";
+import {useWorkspaceStore} from "@/stores/workspace.js";
 
 
 const arrow = ref('arrow_right')
 
 
-const textbookStore = useTextbookStore()
+const textbookStore = useWorkspaceStore()
+// Toc
+import {useTocStore} from "@/stores/toc.js";
+const tocStore = useTocStore()
 const titleClickHandle = (id, title) => {
 	textbookStore.getTextbookContentAndVersions(id, title)
+	tocStore.toc.setTitles(tocStore.tocRef)
 }
 
-// const textbookStore = useTextbookStore()
+// const workspaceStore = useWorkspaceStore()
 const works = ref([])
 
 onMounted(() => {
@@ -33,6 +37,9 @@ onMounted(() => {
 	})
 })
 
+
+
+
 </script>
 
 <template>
@@ -51,6 +58,9 @@ onMounted(() => {
 		</div>
 		<div style="height: 10px"></div>
 	</div>
+
+<!--	<div v-html="tocStore.h">-->
+<!--	</div>-->
 
 	<div class="nav-op-container">
 		<el-tooltip content="create a new work" placement="right">

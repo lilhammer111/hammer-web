@@ -7,27 +7,34 @@ import {useLoginStore, useUserInfoStore} from "@/stores/user.js";
 // v-md-editor
 import VueMarkdownEditor from '@kangc/v-md-editor';
 import '@kangc/v-md-editor/lib/style/base-editor.css';
-import githubTheme from '@kangc/v-md-editor/lib/theme/github.js';
-import '@kangc/v-md-editor/lib/theme/style/github.css';
-
+// vuepress theme
+import vuepressTheme from '@kangc/v-md-editor/lib/theme/vuepress.js'
+import '@kangc/v-md-editor/lib/theme/style/vuepress.css';
+// code copy
 import createCopyCodePlugin from '@kangc/v-md-editor/lib/plugins/copy-code/index';
 import '@kangc/v-md-editor/lib/plugins/copy-code/copy-code.css';
-import hljs from 'highlight.js';
+// code highlight
+import Prism from 'prismjs';
+// menu
+import markdownItTocDoneRight from 'markdown-it-toc-done-right'
+import {useTocStore} from "@/stores/toc.js";
 
-VueMarkdownEditor.use(githubTheme, {
-    Hljs: hljs,
-    codeHighlightExtensionMap: {
-        vue: 'xml',
-    },
+VueMarkdownEditor.use(vuepressTheme, {
+    Prism,
+    extend(md){
+        md.use(markdownItTocDoneRight,{
+            callback: (html, ast) => {
+                const tocStore = useTocStore()
+                tocStore.h = html
+            }
+        })
+    }
 }).use(createCopyCodePlugin())
 
 
 
 const app = createApp(App)
-app.use(router)
-app.use(createPinia())
-app.use(VueMarkdownEditor)
-app.mount('#app')
+app.use(router).use(createPinia()).use(VueMarkdownEditor).mount('#app')
 
 
 const loginStore = useLoginStore()
